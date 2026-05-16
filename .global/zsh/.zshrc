@@ -39,6 +39,8 @@ zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light Aloxaf/fzf-tab
 
+fpath+=~/.zfunc
+
 autoload -Uz compinit
 compinit
 

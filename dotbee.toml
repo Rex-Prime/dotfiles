@@ -1,0 +1,15 @@
+#:schema https://gitlab.com/rogue-sly/dotbee/-/raw/main/schema/dotbee.json
+
+[settings]
+auto_detect_profile = true # try to match hostname to a profile
+on_conflict = "ask"        #  overwrite, adopt, skip, abort or ask (default: ask)
+
+# global configs that gets applied regardless of profile
+[global.links]
+"~/.zshrc" = ".global/zsh/.zshrc"
+"~/.p10k.zsh" = ".global/zsh/.p10k.zsh"
+"~/.gitconfig" = ".global/git/.gitconfig"
+
+[profiles.GG.links]
+"~/.config/nvim" = ".fedora/nvim"
+"~/.config/wezterm" = ".fedora/wezterm"
