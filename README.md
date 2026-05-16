@@ -1,4 +1,4 @@
 ### Run
 
-dotbee switch <profile>
+`dotbee switch <profile>`
 
