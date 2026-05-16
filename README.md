@@ -1,3 +1,4 @@
 ### Run
 
-`stow .`
+dotbee switch <profile>
+
