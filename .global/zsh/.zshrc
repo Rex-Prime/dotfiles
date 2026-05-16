@@ -12,6 +12,7 @@ fi
 #  fpath+=($profile/share/zsh/site-functions $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
 #done
 fpath=(/usr/share/zsh/site-functions /usr/share/zsh/$ZSH_VERSION/functions $fpath)
+fpath+=~/.zfunc
 
 # Initialize zinit
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -24,6 +25,7 @@ fi
 
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 
+~/.local/bin/mise activate zsh | source
 
 #autoload -Uz _zinit
 #(( ${+_comps} )) && _comps[zinit]=_zinit
@@ -38,8 +40,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light Aloxaf/fzf-tab
-
-fpath+=~/.zfunc
 
 autoload -Uz compinit
 compinit
@@ -82,6 +82,10 @@ WORDCHARS="${WORDCHARS//\/}" # stops cursor at /
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
 mkdir -p "$(dirname "$HISTFILE")"
 
 # ZSH options for better experience
@@ -137,9 +141,6 @@ alias tree='eza --tree --icons'
 
 alias ff='fastfetch'
 alias of='onefetch'
-
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 if [[ -n "$ZSH_DEBUGRC" ]]; then
   zprof
